@@ -91,7 +91,7 @@ if file:
         st.markdown("""<dr/>""",unsafe_allow_html=True)
         # subheader and dataframe
         st.subheader("DataFrame")
-        st.dataframe(df,use_container_width=True)
+        st.dataframe(df,use_container_width="stretch")
 
     # city sale (2)
     elif menu=="City-Wise Sales":
@@ -99,7 +99,7 @@ if file:
         st.subheader("City Wise Sales ")
 
         city_sale=df.groupby(city_column)["Revenue"].sum().reset_index()
-        st.dataframe(city_sale,use_container_width=True)  
+        st.dataframe(city_sale,use_container_width="stretch")  
     # Category revenue (3)
     elif menu=="Category Revenue":
         # subheader
@@ -153,7 +153,7 @@ if file:
             (df[product_column]==selected_product) &
             (df["Revenue"]>=min_revenue)
         ]
-        st.dataframe(filtered_df,use_container_width=True)
+        st.dataframe(filtered_df,use_container_width="stretch")
 
     # # Detect coulums
     numeric_cols= df.select_dtypes(include='number').columns.tolist()
